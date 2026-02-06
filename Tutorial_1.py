@@ -147,4 +147,23 @@ if applying a 3-day:
 or 
     Decayed Alpha = (Alpha on Day 1 * 3) + (Alpha on Day 2 * 2) + (Alpha on Day 3 * 1)/6
 
+Higher decay lower Alpha turnover, which can help to reduce transaction costs and market impact, but it may also reduce the responsiveness of the alpha to recent market changes.
+Also alpha's sharpe ratio might decrease because of the reduced responsiveness to recent market changes, which can lead to lower returns.
+"""
+
+## 8. Truncation
+"""Truncation
+Truncation is a technique used to limit the maximum weight a single stock can have in a portfolio.
+
+TOP3000, using about 0.01 is typical. 
+However, TOP200, using about higher maximum positions might be better, like 0.05.
+"""
+
+
+## 8. Pasteurization
+"""Pasteurization
+Pasteurization is a technique used to reduce the influence of extreme values in a data set.
+
+such as, leave the stock not in the top 3000, but assign it a weight as NaN
+This can help to improve the stability of the alpha by preventing extreme values from dominating the performance metrics.
 """
