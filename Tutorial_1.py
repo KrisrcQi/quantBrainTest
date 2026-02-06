@@ -134,3 +134,17 @@ The PnL for each stock is calculated by multiplying the capital allocated to tha
 But, be attention on red and green with their position. Cuz if the position is long (positive weight), a positive return will generate a positive PnL, while a negative return will generate a negative PnL.
 
 """
+
+## 7. Decay
+"""Decay
+Decay is a technique used to reduce the influence of older data points in a time series.
+By applying a decay factor, we can give more weight to recent data points while diminishing the impact of older data points.
+
+Because changing too many positions in one day can lead to issues such as portfolio unstable, high transaction costs, and market impact
+
+if applying a 3-day:
+    Decayed Alpha = (Alpha on Day 1 * 0.5) + (Alpha on Day 2 * 0.3) + (Alpha on Day 3 * 0.2)
+or 
+    Decayed Alpha = (Alpha on Day 1 * 3) + (Alpha on Day 2 * 2) + (Alpha on Day 3 * 1)/6
+
+"""
