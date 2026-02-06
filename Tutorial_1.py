@@ -85,3 +85,52 @@ It's calculated by dividing total PnL by the total traded amount.
 
 Note that Margin uses basis points (bps, ‱, or ten thousandths) as its unit of measurement, not %!
 """
+
+## 6. Simulation
+"""Positions introduction
+long & short positions
+long = buy
+short = sell
+
+Column D is the mean of Alpha value, Column C is the Alpha value for each stock. 
+"""
+
+"""Long-Short Portfolio 
+Half of the capital is allocated to long positions (stocks with positive market-neutralized alpha),
+and the other half to short positions (stocks with negative market-neutralized alpha).
+
+Long-short portfolio helps minimize market risk influence and reain only the pure signal effect.
+
+1. Market Neutralization
+After calculating rank(), we can neutralize the alpha by subtracting the average rank across all companies on each date.
+This process is called market neutralization, which helps to remove any market-wide effects and focuses on the relative performance of individual companies.
+
+Column E is the market-neutralized alpha, which is obtained by subtracting the average rank (Column D) from the original rank (Column C).
+    market-neutralized alpha = original rank - average rank 
+
+2. Position: Centred around Zero
+The market-neutralized alpha (Column E) is centered around zero, meaning that the average value across all companies on each date is zero.
+
+    If the result is positive, it indicates that the stock is ranked higher than the average, suggesting a potential long position.
+    If the result is negative, it indicates that the stock is ranked lower than the average, suggesting a potential short position.
+
+Then, compute each absolute value of the market-neutralized alpha (Column F) and total absolute value
+
+3. Normalized Weights
+Each normalized weight is calculated by dividing the market-neutralized alpha (Column E) by the total absolute value:
+    Normalized weight = Market-Neutralized Alpha value / Total absolute value   
+
+Total of the normalized weights across all companies on each date will be 1, which means that the total capital is fully allocated to the long and short positions.
+
+4. Assigning Capital
+The normalized weights are then multiplied by the total capital to determine the amount of capital allocated to each stock. 
+    Capital allocated to each stock = Normalized weight * Total capital
+
+5. PnL Calculation
+The PnL for each stock is calculated by multiplying the capital allocated to that stock by the return of that stock on the next day.
+    PnL for each stock = Capital allocated to each stock * Return of that stock on the next day
+    Total PnL = Sum of PnL for all stocks
+
+But, be attention on red and green with their position. Cuz if the position is long (positive weight), a positive return will generate a positive PnL, while a negative return will generate a negative PnL.
+
+"""
