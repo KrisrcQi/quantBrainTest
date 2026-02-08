@@ -80,7 +80,14 @@ Using ts_rank to identify current performance of the company compared to its own
 HINT TO IMPROVE THE ALPHA: 
 Rather than comparing the value directly, can calculating a ratio that includes stock market moves, improve the signal?
 """
+## 3.2 days_from_last_change(x)
+"""
+e.g. 
+Input value 1 in past 7 days where the value: (2,2,2,7,5,16,1)
+Output: 3
+Since, after the third day, the value changes to 7 from 2.
 
+"""
 
 
 # 4. Cross Sectional operators
@@ -124,4 +131,4 @@ by normalizing the values.
 """Group operators
 Similar as Vector operator, you could find group-type data fields that group companies based on specific criteria
     
-"""
+""" 
