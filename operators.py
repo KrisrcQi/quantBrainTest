@@ -3,7 +3,13 @@ import numpy as np
 import pandas as pd
 
 
-# 1. mius (-)
+# 1. Arithmetic operators
+"""Arithmetic operators
+Basic math operations and rounding
+
+Such like, - negation (-)
+"""
+## 1.1 mius (-)
 def negate(data_field):
     """ -
     the "-" operator negates the values of a data field.
@@ -13,17 +19,24 @@ def negate(data_field):
     """
     return -data_field
 
-# 2. rank()
-def rank(data_field):
-    """ rank()
-    The rank() operator ranks the values of a data field across all companies on each date. 
-    
-    """
-    # Assuming data_field is a pandas DataFrame with companies as columns and dates as index
-    ranked_field = data_field.rank(axis=1, method='average', ascending=True)
-    return ranked_field
 
-# 3. ts_rank()
+
+# 2. logical operators
+"""Binary logical operators
+True = 1 
+False = 0
+"""
+
+
+
+# 3. Time Series operators
+"""Time-series operators
+Perform operations related to past d-day values for specific stock:
+
+- ts_rank(): ranks the values of a data field over a specified time window for each company
+- ts_mean(x, d): calculates the mean of x data over the past d days.
+"""
+## 3.1 ts_rank()
 def ts_rank(data_field, window):
     """ ts_rank()
     The ts_rank() operator ranks the values of a data field over a specified time window for each company.
@@ -67,3 +80,25 @@ Using ts_rank to identify current performance of the company compared to its own
 HINT TO IMPROVE THE ALPHA: 
 Rather than comparing the value directly, can calculating a ratio that includes stock market moves, improve the signal?
 """
+
+
+
+# 4. Cross Sectional operators
+"""Cross sectional operators
+compere or process values across different companies on the same date/a specific date:
+
+- rank(): ranks the values of a data field across all companies on each date. 
+
+"""
+
+
+## 4.1 rank()
+def rank(data_field):
+    """ rank()
+    The rank() operator ranks the values of a data field across all companies on each date. 
+    
+    """
+    # Assuming data_field is a pandas DataFrame with companies as columns and dates as index
+    ranked_field = data_field.rank(axis=1, method='average', ascending=True)
+    return ranked_field
+
