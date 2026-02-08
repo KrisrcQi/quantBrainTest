@@ -88,10 +88,7 @@ Rather than comparing the value directly, can calculating a ratio that includes 
 compere or process values across different companies on the same date/a specific date:
 
 - rank(): ranks the values of a data field across all companies on each date. 
-
 """
-
-
 ## 4.1 rank()
 def rank(data_field):
     """ rank()
@@ -102,3 +99,29 @@ def rank(data_field):
     ranked_field = data_field.rank(axis=1, method='average', ascending=True)
     return ranked_field
 
+
+
+
+# 5. Vector operators
+"""Vector operators
+Instead of having a single value per stock, we can have a store multiple values for each stock, 
+such as the past d-day values for a specific stock.
+
+or, multiple stocks' values on a specific date/ratio, 
+such as, mean, median, max, min, etc. across all stocks on a specific date.
+"""
+
+
+
+# 6. Transformational operators
+"""Transformational operators
+Transform the values of a data field in some way, such as by applying a mathematical function or
+by normalizing the values.
+"""
+
+
+# 7. Group operators
+"""Group operators
+Similar as Vector operator, you could find group-type data fields that group companies based on specific criteria
+    
+"""
